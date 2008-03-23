@@ -7,7 +7,7 @@
 . ../slack-package.conf
 
 NAME=xmltoman
-VERSION=0.3
+VERSION=0.4
 ARCH=noarch
 BUILD=1
 
@@ -15,7 +15,7 @@ CWD=${CWD:-`pwd`}
 TMP=${TMP:-/tmp}
 
 cd $TMP
-tar -zxvf $CWD/${NAME}_${VERSION}.orig.tar.gz
+tar -zxvf $CWD/${NAME}-${VERSION}.tar.gz
 SRC=$TMP/$NAME-$VERSION
 cd $SRC
 
@@ -38,12 +38,13 @@ bin_perms $PKG
 gzip_man $PKG
 
 mkdir -p $PKG/install
-install -m 644 $CWD/slack-desc     $PKG/install
-install -m 644 $CWD/slack-required $PKG/install
+install -m 644 $CWD/slack-desc     $PKG/install/slack-desc
+install -m 644 $CWD/slack-required $PKG/install/slack-required
+
 mkdir -p $PKG/usr/src/slackbuilds/$NAME-$VERSION
-install -m 644 $CWD/slack-desc       $PKG/usr/src/slackbuilds/$NAME-$VERSION
-install -m 644 $CWD/slack-required   $PKG/usr/src/slackbuilds/$NAME-$VERSION
-install -m 644 $CWD/$NAME.SlackBuild $PKG/usr/src/slackbuilds/$NAME-$VERSION
+install -m 644 $CWD/slack-desc       $PKG/usr/src/slackbuilds/$NAME-$VERSION/slack-desc
+install -m 644 $CWD/slack-required   $PKG/usr/src/slackbuilds/$NAME-$VERSION/slack-required
+install -m 644 $CWD/$NAME.SlackBuild $PKG/usr/src/slackbuilds/$NAME-$VERSION/$NAME.SlackBuild
 
 cd $PKG
 PKGNAME=$NAME-$VERSION-$ARCH-$BUILD$MYIN
