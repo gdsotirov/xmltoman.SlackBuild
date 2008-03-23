@@ -1,4 +1,4 @@
-xmltoman: xmltoman - A simple XML to man converter
+xmltoman: xmltoman (A simple XML to man converter)
 xmltoman:
 xmltoman: xmltoman and xmlmantohtml are two small scripts to convert xml to
 xmltoman: man pages in groff format or html. It features the usual man page
